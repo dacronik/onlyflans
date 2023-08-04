@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'content' %}
+<div class="container">
+   <div class="col-12 col-md-6 offset-0 offset-md-3 mt-4 mb-4 pt-3 contact">
+       <h3 class="text-center">
+           Contáctanos
+       </h3>
+       <hr>
+       <div>
+
+            <form action="/contacto" method="post">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+
+                <div class="mb-3 text-center fw-bold fs-5">
+                    <label for="{{ form.customer_name.id_for_label}}" class="form-label" name="name">
+                        {{ form.customer_name.label_tag }}
+                    </label>
+                    <div>
+                        {{ form.customer_name }}
+                    </div>
+                    <div class="text-danger">
+                        {{ form.customer_name.errors}}
+                    </div>
+                </div>
+
+                <div class="mb-3 text-center fw-bold fs-5">
+                    <label for="{{ form.customer_email.id_for_label}}" class="form-label" name="email">
+                        {{ form.customer_email.label_tag }}
+                    </label>
+                    <div>
+                        {{ form.customer_email }}
+                    </div>
+                    <div class="text-danger">
+                        {{ form.customer_email.errors}}
+                    </div>
+                </div>
+                <div class="mb-3 text-center fw-bold fs-5">
+                    <label for="{{ form.subject.id_for_label}}" class="form-label" name="subject">
+                        {{ form.subject.label_tag }}
+                    </label>
+                    <div>
+                        {{ form.subject }}
+                    </div>
+                    <div class="text-danger">
+                        {{ form.subject.errors}}
+                    </div>
+                </div>
+
+                <div class="mb-3 text-center fw-bold fs-5">
+                    <label for="{{ form.message.id_for_label}}" class="form-label" name="message">
+                        {{ form.message.label_tag }}
+                    </label>
+                    <div>
+                        {{ form.message }}
+                    </div>
+                    <div class="text-danger">
+                        {{ form.message.errors}}
+                    </div>
+                </div>
+                <div class="mb-3 captcha text-center pt-4">
+                    <div class="row">
+                        <!--<div class="g-recaptcha" data-sitekey="6Le5vFoiAAAAAAn_mPCv_DZGzhzEn4X6FHzf-aef"></div>-->
+                    </div>    
+                </div>
+
+                <div class="text-center col-12 mb-4 mt-4 pb-4">
+                    <button type="submit" class="btn btn-outline-light" id="sesion">Enviar</button>
+                </div>
+            </form>
+       </div>
+    </div>
+</div>
+    
+<div class="container">
+    <hr class=" row opacity-100 w-25 mx-auto">
+    <div class="h-100 p-4 rounded-3">
+        <h3 class="text-center fw-bold">
+            Puedes visitarnos en :
+        </h3>
+        <h5 class="text-center fw-bold">
+            Gral. Salvo 88, Providencia, Región Metropolitana
+        </h5>
+        <h5 class="text-center fw-bold">
+            <i class="fas fa-phone"></i>Fijo: (2) 2222 222</i>
+            <i class="fas fa-envelope"></i>onlyflans@ejemplo.cl</i>
+        </h5>   
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-lg-12 text-center">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d53273.537004149635!2d-70.624921!3d-33.433774!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662c586ff18efd7%3A0x1b56ae7ff56ddacd!2sGral.%20Salvo%2088%2C%20Providencia%2C%20Regi%C3%B3n%20Metropolitana!5e0!3m2!1ses-419!2scl!4v1650495934586!5m2!1ses-419!2scl" 
+            ></iframe>
+        </div>
+    </div>
+    
+</div>
+{% endblock  %}
